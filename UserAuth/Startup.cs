@@ -38,13 +38,10 @@ namespace UserAuth
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            //services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(
-                //Configuration.GetConnectionString("IdentityConn")));
-
             services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(
-            "Server=tcp:fruitvending.database.windows.net,1433;Initial Catalog=UserDB;Persist " +
-            "Security Info=False;User ID=kunal;Password=R0yal123;MultipleActiveResultSets=False;Encrypt=True;" +
-            "TrustServerCertificate=False;Connection Timeout=30;"));
+                Configuration.GetConnectionString("IdentityConn")));
+
+
 
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<AuthenticationContext>();
