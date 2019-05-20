@@ -38,10 +38,12 @@ namespace UserAuth
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("IdentityConn")));
+            //services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(
+            //Configuration.GetConnectionString("IdentityConn")));
 
 
+
+            services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("IdentityConn")));
 
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<AuthenticationContext>();
