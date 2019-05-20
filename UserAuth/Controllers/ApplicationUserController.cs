@@ -25,7 +25,7 @@ namespace UserAuth.Controllers
         private UserManager<ApplicationUser> _usermanager;
         private SignInManager<ApplicationUser> _signinmanager;
         private readonly ApplicationSettings _appSettings;
-
+        //modified for testing cicd
 
         public ApplicationUserController(UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signinmanager, IOptions<ApplicationSettings> appSettings)
         {
